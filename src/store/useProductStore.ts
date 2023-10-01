@@ -28,12 +28,11 @@ export const useProductStore = defineStore('Product', {
             return this.products
         },
 
-        getProductById(idProduct:string): Product | string {
+        getProductById(idProduct:string): Product {
             const product = this.products.find(objeto => objeto.id === idProduct)
 
             if (product) return product
-
-            return 'No existe ese producto'
+            throw new Error('Product not exists')
         }
     }
 })

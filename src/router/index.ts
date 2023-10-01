@@ -22,7 +22,7 @@ const routes: RouteRecordRaw[] = [
         component: () => import(/* webpackChunkName: "ProductList" */ '../views/ProductList.vue')
     },
     {
-        path: '/detalle-producto/:idProduct',
+        path: '/detalle-producto/:idProduct(\\d+)',
         name: 'ProductDetail',
         component: () => import(/* webpackChunkName: "ProductDetail" */ '../views/ProductDetail.vue')
     },
