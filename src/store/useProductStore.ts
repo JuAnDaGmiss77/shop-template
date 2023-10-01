@@ -5,6 +5,7 @@ export const useProductStore = defineStore('Product', {
     state: () => {
         return {
             products: [] as Product[],
+            product: {} as Product,
         }
     },
 
@@ -22,9 +23,17 @@ export const useProductStore = defineStore('Product', {
             }
             else return
         },
-        
+
         getProducts(): Product[] {
             return this.products
+        },
+
+        getProductById(idProduct:string): Product | string {
+            const product = this.products.find(objeto => objeto.id === idProduct)
+
+            if (product) return product
+
+            return 'No existe ese producto'
         }
     }
 })
