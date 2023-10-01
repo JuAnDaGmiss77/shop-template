@@ -1,5 +1,13 @@
 <script lang="ts" setup>
 import NavigationMenu from '../components/NavigationMenu.vue'
+import { onMounted } from 'vue'
+import { initFlowbite } from 'flowbite'
+import FooterShop from '../components/FooterShop.vue';
+
+// initialize components based on data attribute selectors
+onMounted(() => {
+    initFlowbite();
+})
 </script>
 
 <template>
@@ -10,18 +18,18 @@ import NavigationMenu from '../components/NavigationMenu.vue'
         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
             <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="../assets/img-1.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="...">
+                <img src="../assets/img-1.jpg"
+                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
             <!-- Item 2 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="../assets/img-2.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="...">
+                <img src="../assets/img-2.jpg"
+                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
             <!-- Item 3 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="../assets/img-3.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-                    alt="...">
+                <img src="../assets/img-3.jpg"
+                    class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
 
         </div>
@@ -79,7 +87,10 @@ import NavigationMenu from '../components/NavigationMenu.vue'
                 frutas y verduras de primera calidad hasta carnes frescas y pescados recién llegados. Además, nuestra
                 sección de productos envasados
                 te ofrece una selección completa de alimentos enlatados, productos de despensa y deliciosos aperitivos para
-            satisfacer todos tus antojos.
-        </p>
-    </a>
-</main></template>
+                satisfacer todos tus antojos.
+            </p>
+        </a>
+    </main>
+
+    <FooterShop/>
+</template>
