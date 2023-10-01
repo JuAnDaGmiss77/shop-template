@@ -14,9 +14,9 @@ export const useProduct = () => {
         productStore.setFakeProducts()
     }
 
-    return [
+    return {
         products,
         getProducts,
         setFakeProducts
-    ]
+    }
 }

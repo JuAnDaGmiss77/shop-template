@@ -9,5 +9,6 @@ const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
 
 createApp(App)
+    .use(pinia)
     .use(router)
     .mount('#app')

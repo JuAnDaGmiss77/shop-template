@@ -2,8 +2,12 @@
 import NavigationMenu from '../components/NavigationMenu.vue'
 import { onMounted } from 'vue'
 import { initFlowbite } from 'flowbite'
-import FooterShop from '../components/FooterShop.vue';
+import FooterShop from '../components/FooterShop.vue'
+import { useProduct } from '../composables/useProduct'
 
+const {setFakeProducts} = useProduct()
+//set products in localstorage
+setFakeProducts()
 // initialize components based on data attribute selectors
 onMounted(() => {
     initFlowbite();

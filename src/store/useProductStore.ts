@@ -4,7 +4,7 @@ import { productsFakeData } from "./products.fake"
 export const useProductStore = defineStore('Product', {
     state: () => {
         return {
-            products: {} as Product[],
+            products: [] as Product[],
         }
     },
 
@@ -16,9 +16,13 @@ export const useProductStore = defineStore('Product', {
     actions: {
 
         setFakeProducts() {
-            if ( this.products.length === 0 ) this.products = productsFakeData
+            if ( this.products.length === 0 ) {
+                console.log('not exists products')
+                this.products = productsFakeData
+            }
             else return
         },
+        
         getProducts(): Product[] {
             return this.products
         }
