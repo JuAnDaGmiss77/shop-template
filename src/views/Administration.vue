@@ -5,12 +5,12 @@ import { useProduct } from '../composables/useProduct'
 import { Product } from '../interfaces/Product.interface'
 import { ref } from 'vue'
 
-const { getProducts, products, createProduct } = useProduct()
+const { getProducts, products, createProduct, deleteProduct } = useProduct()
 
 getProducts()
 
 const product = ref<Product>({
-    id: new String(products.value.length + 1).toString(),
+    id:'',
     amount: 0,
     description: '',
     discount: false,
@@ -40,6 +40,7 @@ const closeModal = () => {
 }
 
 const cleanForm = () => {
+    product.value.id = ''
     product.value.amount = 0
     product.value.image = ''
     product.value.pricing = 0
@@ -49,17 +50,28 @@ const cleanForm = () => {
     product.value.discount = false
 
 }
+
+function randomId() {
+    const longitud = 20
+    const caracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    return Array.from({ length: longitud }, () => caracteres[Math.floor(Math.random() * caracteres.length)]).join('');
+}
 const onSubmit = () => {
-    createProduct(product.value)
+    const productSave = {...product.value}
+    productSave.id = randomId()
+    createProduct(productSave)
     closeModal()
     cleanForm()
+}
+
+const deleteProductEvent = (idProduct:string) => {
+    deleteProduct(idProduct)
     getProducts()
 }
 </script>
 
 <template>
     <NavigationMenu />
-    {{ product }}
     <!-- Main modal -->
     <div id="modal" tabindex="-1"
         class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
@@ -128,7 +140,7 @@ const onSubmit = () => {
 
                         <button type="submit"
                             class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
-                            Agregar producto</button>
+                            Agregar</button>
                     </form>
                 </div>
             </div>
@@ -183,8 +195,8 @@ const onSubmit = () => {
                             $ {{ product.pricing }}
                         </td>
                         <td class="px-6 py-4">
-                            <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Eliminar</a>
-                            <a href="#" class="font-medium text-blue-600 dark:text-red-500 hover:underline">Editar</a>
+                            <a @click="deleteProductEvent(product.id)" class="cursor-pointer me-3 font-medium text-red-600 dark:text-red-500 hover:underline">Eliminar</a>
+                            <a href="#" class="cursor-pointer font-medium text-blue-600 dark:text-red-500 hover:underline">Editar</a>
                         </td>
                     </tr>
 
