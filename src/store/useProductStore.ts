@@ -29,10 +29,18 @@ export const useProductStore = defineStore('Product', {
         },
 
         getProductById(idProduct:string): Product {
-            const product = this.products.find(objeto => objeto.id === idProduct)
+            const product = this.products.find(object => object.id === idProduct)
 
             if (product) return product
             throw new Error('Product not exists')
+        },
+
+        createProduct(product:Product) {
+            this.products.push(product)
+        },
+
+        deleteProduct(idProduct:string) {
+            this.products = this.products.filter(object => object.id !== idProduct)
         }
     }
 })

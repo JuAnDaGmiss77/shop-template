@@ -19,11 +19,21 @@ export const useProduct = () => {
         product.value = productStore.getProductById(idProduct)
     }
 
+    const createProduct = ( product:Product ): void => {
+        productStore.createProduct(product)
+    }
+
+    const deleteProduct = ( idProduct:string ): void => {
+        productStore.deleteProduct(idProduct)
+    }
+
     return {
         products,
         getProducts,
         setFakeProducts,
         getProductById,
-        product
+        product,
+        createProduct,
+        deleteProduct
     }
 }
