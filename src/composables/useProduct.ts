@@ -15,8 +15,9 @@ export const useProduct = () => {
         productStore.setFakeProducts()
     }
 
-    const getProductById = ( idProduct:string ): void => {
+    const getProductById = ( idProduct:string ): Product => {
         product.value = productStore.getProductById(idProduct)
+        return product.value
     }
 
     const createProduct = ( product:Product ): void => {
@@ -27,6 +28,10 @@ export const useProduct = () => {
         productStore.deleteProduct(idProduct)
     }
 
+    const editProduct = ( updatedProduct:Product): void => {
+        productStore.editProduct(updatedProduct)
+    }
+
     return {
         products,
         getProducts,
@@ -34,6 +39,7 @@ export const useProduct = () => {
         getProductById,
         product,
         createProduct,
-        deleteProduct
+        deleteProduct,
+        editProduct,
     }
 }

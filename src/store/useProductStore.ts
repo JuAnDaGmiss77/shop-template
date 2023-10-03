@@ -41,6 +41,15 @@ export const useProductStore = defineStore('Product', {
 
         deleteProduct(idProduct:string) {
             this.products = this.products.filter(object => object.id !== idProduct)
+        },
+
+        editProduct(updatedProduct:Product) {
+            console.log(updatedProduct)
+            const index = this.products.findIndex(product => product.id === updatedProduct.id);
+
+            if (index !== -1) this.products[index] = updatedProduct;
+            else throw new Error('Product not exists')
+            
         }
     }
 })
