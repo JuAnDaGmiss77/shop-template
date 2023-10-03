@@ -10,6 +10,7 @@ Este sitio web de venta de productos de supermercado es una aplicación web desa
 2. TypeScript
 3. Pinia
 4. VueRouter
+5. Flowbite
 
 # Instalacion
 1. Clone este repositorio
