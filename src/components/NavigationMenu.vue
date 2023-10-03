@@ -5,10 +5,12 @@
 <template>
     <nav class="bg-white border-gray-200 dark:bg-gray-900">
         <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-            <a href="https://flowbite.com/" class="flex items-center">
-                <img src="../assets/logo.png" class="h-8 mr-3" alt="SuperCompra Logo">
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SuperCompra</span>
-            </a>
+            <RouterLink :to="{name: 'Home'}">
+                <a class="flex items-center">
+                    <img src="../assets/logo.png" class="h-8 mr-3" alt="SuperCompra Logo">
+                    <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">SuperCompra</span>
+                </a>
+            </RouterLink>
             <button data-collapse-toggle="navbar-default" type="button"
                 class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
                 aria-controls="navbar-default" aria-expanded="false">
@@ -30,15 +32,15 @@
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink :to="{ name: 'ProductList'}">
+                        <RouterLink :to="{ name: 'ProductList' }">
                             <a href="product_list.html"
                                 class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Productos</a>
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink :to="{ name: 'Login'}">
+                        <RouterLink :to="{ name: 'Login' }">
                             <a href="login.html"
-                            class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Administración</a>
+                                class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Administración</a>
                         </RouterLink>
                     </li>
 
